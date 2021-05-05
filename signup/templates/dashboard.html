@@ -22,8 +22,9 @@
         <!-- Navigation-->
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
-                <a class="navbar-brand" href="#!">RBV Business Expectation & Sentiments(BES) Survey</a>
-                <a class="btn btn-primary" href="#!"><i class="fas fa-lock"></i> Administrator</a>
+                <a class="navbar-brand" href="#!"><h2>Reserve Bank Business Expectation & Sentiments(BES) Survey</h2></a>
+                <a class="btn btn-primary" href="#!"><i class="fas fa-sign-out-alt"></i> Signout</a>
+
             </div>
         </nav>
         <!-- Masthead-->
@@ -33,14 +34,24 @@
                 <div class="row">
                     <div class="col-xl-9 mx-auto"><h1 class="mb-5">
 
-                        The Reserve Bank of Vanuatu requests your participation in this survey.
+                       Please Select your language to take the survey.
 
                     </h1></div>
                     <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
                         <form>
                             <div class="form-row">
 <!--                                <div class="col-12 col-md-9 mb-2 mb-md-0"><input class="form-control form-control-lg" type="email" placeholder="Enter your email..." /></div>-->
-                                <div class="col-12 col-md-3"><button class="btn btn-block btn-lg btn-primary" type="submit"><a href="{%url 'signin'%}"><font color="white"> Take Survey</font></a></button></div>
+<!--                                <div class="col-12 col-md-3"><button class="btn btn-block btn-lg btn-primary" type="submit"><a href="{%url 'signin'%}"><font color="white"> Take Survey</font></a></button></div>-->
+                                            <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Select Language
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="#">English</a>
+    <a class="dropdown-item" href="#">French</a>
+    <a class="dropdown-item" href="#">Bislama</a>
+  </div>
+</div>
                             </div>
                         </form>
                     </div>
