@@ -31,4 +31,28 @@ def signup(request):
         else:
             messages.info(request, 'Username or Password Incorrect')
     return HttpResponseRedirect('/signin')
-    #return render(request, 'login.html')
+
+
+def admin_login(request):
+    username = request.POST['username']
+    password = request.POST['password']
+    user = authenticate(request, username=username, password=password)
+    if user:
+        login(request, user)
+        if user.groups.filter(name="administrator").exists():
+            return HttpResponseRedirect('/admin_dashboard')
+        else:
+            messages.info(request, 'Username or Password Incorrect')
+    return HttpResponseRedirect('/admin_page')
+    # return render(request, 'login.html')
+
+
+def admin_page(request):
+    return render(request, 'admin_login.html')
+
+
+def admin_dashboard(request):
+    return render(request, 'admin_dashboard.html')
+
+
+

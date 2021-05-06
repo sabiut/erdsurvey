@@ -20,6 +20,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('home.urls')),
     path('', include('signup.urls')),
+    path('', include('languages.urls')),
+
 ]
 
 # customize the administrator text

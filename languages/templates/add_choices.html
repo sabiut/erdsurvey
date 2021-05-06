@@ -1,0 +1,26 @@
+
+{%extends 'admin_dashboard.html'%}
+ {%block admin%}
+<div class = "centerdv container">
+    	<div class = "page-header">
+    		<h2> Add choice to the Question</h2>
+    	</div>
+    	<br>
+    	<form method = "post"  class = "centerform" action=#>
+    		{% csrf_token %}
+
+
+			<table>
+				{{form.as_table}}
+			</table>
+<!--    		<input type = "text" class = "form-control" name = "survey_title">-->
+<!--            <input type = "text" class = "form-control" name = "survey_title">-->
+<!--    		<br>-->
+    		<input type = "submit" class= "btn btn-primary" value = "Save Choice">
+			<a href="#">add new question</a>
+
+    	</form>
+</div>
+
+
+ {%endblock%}
