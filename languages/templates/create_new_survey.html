@@ -3,19 +3,18 @@
  {%block admin%}
 <div class = "centerdv container">
     	<div class = "page-header">
-    		<h2> Create a new Survey</h2>
+    		<h3> Create a new Survey</h3>
     	</div>
     	<br>
     	<form method = "post"  class = "centerform" action=#>
     		{% csrf_token %}
-    		<b>Survey Title</b>
 
 			<table>
 				{{form.as_table}}
 			</table>
 <!--    		<input type = "text" class = "form-control" name = "survey_title">-->
 <!--            <input type = "text" class = "form-control" name = "survey_title">-->
-<!--    		<br>-->
+   		<br>
     		<input type = "submit" class= "btn btn-primary" value = "Save Survey">
     	</form>
 </div>

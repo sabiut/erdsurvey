@@ -29,8 +29,8 @@ def create_new_survey(request):
     if request.method == 'POST':
         form = NewSurveyForm(request.POST)
         if form.is_valid():
-            new_contact = form.save()
-            return HttpResponseRedirect(reverse(add_question, args=(new_contact.id,)))
+            survey_id = form.save()
+            return HttpResponseRedirect(reverse(add_question, args=(survey_id.id,)))
 
     else:
         form = NewSurveyForm()
@@ -47,17 +47,24 @@ def add_question(request, survey_id):
             return HttpResponseRedirect(reverse(add_choice, args=(question_id.id,)))
     else:
         form = QuestionForm()
-        return render(request, 'question.html', {'form': form}, )
+        get_surveyid = Survey.objects.get(id=survey_id)
+        survey_title = get_surveyid.title
+
+        return render(request, 'question.html',
+                      {'form': form, 'survey_title': survey_title})
 
 
 def add_choice(request, question_id):
     if request.method == 'POST':
-        questionid = Question.objects.get(id=question_id)
+        questionid = Question.objects.get(pk=question_id)
         form = RadioChoiceForm(request.POST)
         if form.is_valid():
             form.instance.question = questionid
             question_id = form.save()
-        return HttpResponseRedirect(reverse(add_choice, args=(question_id.id,)))
+        return HttpResponseRedirect(reverse(add_choice, args=(question_id.question_id,)))
     else:
         form = RadioChoiceForm()
-        return render(request, 'add_choices.html', {'form': form}, )
+        question_id = Question.objects.get(pk=question_id)
+        question_name = question_id.enter_question
+
+        return render(request, 'add_choices.html', {'form': form, 'question_name': question_name, 'question_id': question_id})
