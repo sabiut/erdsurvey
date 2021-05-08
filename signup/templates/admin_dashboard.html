@@ -4,6 +4,9 @@
 
 <head>
 
+    <!--font awesome-->
+    <link href="{% static 'vendor/fontawesome-free/css/all.min.css'%}" rel="stylesheet" type="text/css">
+    <!--end-->
 
     <!--bootstrap 5-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -34,7 +37,7 @@
 <body>
 <div>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+  <a class="navbar-brand" href="{%url 'admin_dashboard'%}"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -45,7 +48,7 @@
         <a class="nav-link" href="{%url 'create_new_survey'%}">Create Survey <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
+        <a class="nav-link" href="{%url 'archived_survey'%}">Archive</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -59,7 +62,7 @@
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
+        <a class="nav-link active" href="{%url 'admin_logout'%}"><i class="fas fa-sign-out-alt"></i>Signout</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
@@ -68,7 +71,40 @@
     </form>
   </div>
 </nav>
+
     {%block admin%}
+
+    <table class="table table-striped">
+  <thead>
+    <tr class="table-primary">
+
+      <th scope="col">Survey Title</th>
+      <th scope="col">Date Created</th>
+        <th scope="col">Action</th>
+        <th>Delete</th>
+        <th>Archive</th>
+
+    </tr>
+  </thead>
+        {% for survey in survey%}
+  <tbody>
+    <tr>
+
+      <td>{{survey.title}}</td>
+      <td>{{survey.created_at}}</td>
+        <td><a href="" class="btn btn-primary"> <i class="far fa-edit"> Edit</i></a></td>
+        <td><a href="" class="btn btn-danger"> <i class="far fa-trash-alt"> Delete</i></a></td>
+         <td><a href="{%url 'archive' survey.id%}" class="btn btn-warning"> <i class="fas fa-archive"> Move to archive</i></a></td>
+
+
+    </tr>
+
+
+  </tbody>
+
+        {%endfor%}
+</table>
+
 
     {%endblock%}
 </div>

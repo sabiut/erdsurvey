@@ -3,8 +3,9 @@ from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 
-
 # Create your views here.
+from languages.models import Survey
+
 
 def signin(request):
     return render(request, 'loginpage.html')
@@ -13,7 +14,6 @@ def signin(request):
 def logout_view(request):
     logout(request)
     return redirect('signin')
-    # Redirect to a success page.
 
 
 def dashboard(request):
@@ -52,7 +52,18 @@ def admin_page(request):
 
 
 def admin_dashboard(request):
-    return render(request, 'admin_dashboard.html')
+    survey = Survey.objects.filter(archive='')
+    return render(request, 'admin_dashboard.html', {'survey': survey})
 
 
+def admin_logout(request):
+    logout(request)
+    return redirect('/')
 
+
+def archive_survey(request, archive_id):
+    """Archive the survey"""
+    get_id = Survey.objects.get(id=archive_id)
+    get_id.archive = "archived"
+    get_id.save()
+    return redirect('/admin_dashboard')

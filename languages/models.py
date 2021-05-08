@@ -7,8 +7,9 @@ from django.utils import timezone
 
 class Survey(models.Model):
     title = models.CharField(max_length=200)
-    #creator = models.ForeignKey(User, on_delete=models.CASCADE)
+    # creator = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(default=timezone.now)
+    archive = models.CharField(max_length=200, default='')
 
     def __str__(self):
         return self.title

@@ -21,11 +21,8 @@ def bislama(request, get_id):
     return render(request, 'bislama.html', locals())
 
 
-# def create_new_survey(request):
-#     return render(request, 'create_new_survey.html')
-
-
 def create_new_survey(request):
+    """Creating a new survey"""
     if request.method == 'POST':
         form = NewSurveyForm(request.POST)
         if form.is_valid():
@@ -38,6 +35,7 @@ def create_new_survey(request):
 
 
 def add_question(request, survey_id):
+    """adding the question to the survey"""
     if request.method == 'POST':
         surverid = Survey.objects.get(id=survey_id)
         form = QuestionForm(request.POST)
@@ -55,6 +53,7 @@ def add_question(request, survey_id):
 
 
 def add_choice(request, question_id):
+    """adding the choices"""
     if request.method == 'POST':
         questionid = Question.objects.get(pk=question_id)
         form = RadioChoiceForm(request.POST)
@@ -67,4 +66,10 @@ def add_choice(request, question_id):
         question_id = Question.objects.get(pk=question_id)
         question_name = question_id.enter_question
 
-        return render(request, 'add_choices.html', {'form': form, 'question_name': question_name, 'question_id': question_id})
+        return render(request, 'add_choices.html',
+                      {'form': form, 'question_name': question_name, 'question_id': question_id})
+
+
+def archived_survey(request):
+    survey = Survey.objects.filter(archive='archived')
+    return render(request, 'survey.html', {'survey': survey})
