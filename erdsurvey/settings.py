@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'home.apps.HomeConfig',
     'signup.apps.SignupConfig',
     'languages.apps.LanguagesConfig',
+    'englishsurveyor.apps.EnglishsurveyorConfig',
 ]
 
 MIDDLEWARE = [

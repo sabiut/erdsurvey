@@ -9,7 +9,8 @@ from .models import Survey, Question
 
 
 def english(request):
-    return render(request, 'english.html')
+    survey = Survey.objects.filter(archive='')
+    return render(request, 'english.html', {'survey': survey})
 
 
 def french(request):

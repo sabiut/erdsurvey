@@ -13,7 +13,7 @@ def signin(request):
 
 def logout_view(request):
     logout(request)
-    return redirect('signin')
+    return redirect('index')
 
 
 def dashboard(request):

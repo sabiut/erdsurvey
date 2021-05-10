@@ -21,6 +21,7 @@ urlpatterns = [
     path('', include('home.urls')),
     path('', include('signup.urls')),
     path('', include('languages.urls')),
+    path('', include('englishsurveyor.urls')),
 
 ]
 
