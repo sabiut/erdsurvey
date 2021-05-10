@@ -27,6 +27,7 @@ class Choice(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     choice = models.CharField(max_length=100)
     choice_text = models.CharField(max_length=100)
+    choice_check = models.CharField(max_length=100, null= True)
 
 
 class SurveyAnswer(models.Model):

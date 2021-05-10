@@ -24,3 +24,15 @@ class RadioChoiceForm(forms.ModelForm):
     class Meta:
         model = Choice
         fields = ('choice',)
+
+
+class TexBoxForm(forms.ModelForm):
+    class Meta:
+        model = Choice
+        fields = ('choice_text',)
+
+
+class CheckBoxForm(forms.ModelForm):
+    class Meta:
+        model = Choice
+        fields = ('choice_check',)

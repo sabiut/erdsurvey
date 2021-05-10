@@ -4,7 +4,7 @@ from django.shortcuts import render
 # Create your views here.
 from django.urls import reverse
 
-from .forms import NewSurveyForm, QuestionForm, RadioChoiceForm
+from .forms import NewSurveyForm, QuestionForm, RadioChoiceForm, TexBoxForm, CheckBoxForm
 from .models import Survey, Question
 
 
@@ -67,6 +67,42 @@ def add_choice(request, question_id):
         question_name = question_id.enter_question
 
         return render(request, 'add_choices.html',
+                      {'form': form, 'question_name': question_name, 'question_id': question_id})
+
+
+def add_textbox_choice(request, question_id):
+    """adding the textbox choices"""
+    if request.method == 'POST':
+        questionid = Question.objects.get(pk=question_id)
+        form = TexBoxForm(request.POST)
+        if form.is_valid():
+            form.instance.question = questionid
+            question_id = form.save()
+        return HttpResponseRedirect(reverse(add_choice, args=(question_id.question_id,)))
+    else:
+        form = TexBoxForm()
+        question_id = Question.objects.get(pk=question_id)
+        question_name = question_id.enter_question
+
+        return render(request, 'add_textbox_choices.html',
+                      {'form': form, 'question_name': question_name, 'question_id': question_id})
+
+
+def add_checkbox_choice(request, question_id):
+    """adding the textbox choices"""
+    if request.method == 'POST':
+        questionid = Question.objects.get(pk=question_id)
+        form = CheckBoxForm(request.POST)
+        if form.is_valid():
+            form.instance.question = questionid
+            question_id = form.save()
+        return HttpResponseRedirect(reverse(add_choice, args=(question_id.question_id,)))
+    else:
+        form = CheckBoxForm()
+        question_id = Question.objects.get(pk=question_id)
+        question_name = question_id.enter_question
+
+        return render(request, 'add_checkbox_choices.html',
                       {'form': form, 'question_name': question_name, 'question_id': question_id})
 
 

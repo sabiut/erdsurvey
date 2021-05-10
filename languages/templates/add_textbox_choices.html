@@ -11,12 +11,7 @@
       <a href="{%url 'add_question' question_id.survey_id%}" class="btn btn-info" role="button"><i class="fas fa-plus"></i> Add New Question</a>
 	</div>
     <div class="col order-12">
-      <a href="{%url 'add_textbox_choice' question_id.id%}" class="btn btn-info text-center" role="button"><i class="fas fa-plus"></i> Add Text Box</a>
-
-    </div>
-
-	  <div class="col order-12">
-      <a href="{%url 'add_checkbox_choice' question_id.id%}" class="btn btn-info text-center" role="button"><i class="fas fa-plus"></i> Add Check Box</a>
+      <a href="#" class="btn btn-info text-center" role="button"><i class="fas fa-plus"></i> Add Text Box</a>
 
     </div>
 
@@ -28,7 +23,7 @@
 <br>
 <div class = "centerdv container">
     	<div class = "page-header">
-			<h3> Add choice to the Question: <font color="blue">{{question_name}}</font></h3>
+			<h3> Add Textbox choice to the Question: <font color="blue">{{question_name}}</font></h3>
     	</div>
     	<br>
     	<form method = "post"  class = "centerform" action=#>
