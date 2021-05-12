@@ -1,0 +1,50 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-05-11 18:02+1200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: contact_fr.py:2
+msgid ""
+"This survey is an internet based survey. All information collected are from "
+"your sentiments and the few figures are collated into groups or classes. "
+"Your information is treated in a strictly confidential manner and the "
+"results will be reported as overview and percentages. The survey form "
+"consists of two parts - the PART I covers the profile of the business and "
+"PART II the Business Expectations. The latter is divided into two sections. "
+"The first section, Section A is on the sentiments for the current period "
+"January-June 2021. The second section, Section B focuses on the outlook for "
+"the period of July-December 2021. After the completion of PART I on the "
+"Business Profile below, please proceed to PART II on Business Expectations & "
+"Sentiments Survey and complete the form. For each question, please check the "
+"box that best correspond to the answer you wish to give. Who should complete "
+"this form? This form should be completed by the Chief Executive /Operating "
+"Officer of the business who has comprehensive knowledge of the daily "
+"operations and business environment."
+msgstr ""
+
+#: erdsurvey/settings.py:61
+msgid "French"
+msgstr ""
+
+#: erdsurvey/settings.py:62
+msgid "English"
+msgstr ""
+
+#: erdsurvey/settings.py:63
+msgid "Brazilian Portuguese"
+msgstr ""

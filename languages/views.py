@@ -17,8 +17,7 @@ def french(request):
     return render(request, 'french.html')
 
 
-def bislama(request, get_id):
-    id = get_id
+def bislama(request):
     return render(request, 'bislama.html', locals())
 
 

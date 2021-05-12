@@ -22,6 +22,7 @@ urlpatterns = [
     path('', include('signup.urls')),
     path('', include('languages.urls')),
     path('', include('englishsurveyor.urls')),
+    path('i18n/', include('django_translation_flags.urls')),
 
 ]
 

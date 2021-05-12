@@ -71,7 +71,7 @@
 
       <th scope="col">Survey Title</th>
       <th scope="col">Date Created</th>
-        <th scope="col">Action</th>
+        <th scope="col">Edit</th>
         <th>Delete</th>
         <th>Archive</th>
 
@@ -81,10 +81,10 @@
   <tbody>
     <tr>
 
-      <td>{{survey.title}}</td>
+      <td><a href="{%url 'add_question' survey.id%}">{{survey.title}}</a></td>
       <td>{{survey.created_at}}</td>
-        <td><a href="" class="btn btn-primary"> <i class="far fa-edit"> Edit</i></a></td>
-        <td><a href="" class="btn btn-danger"> <i class="far fa-trash-alt"> Delete</i></a></td>
+        <td><a href="{%url 'edit_survey' survey.id%}" class="btn btn-primary"> <i class="far fa-edit"> Edit</i></a></td>
+        <td><a href="{%url 'delete_survey' survey.id%}" class="btn btn-danger"> <i class="far fa-trash-alt"> Delete</i></a></td>
          <td><a href="{%url 'archive' survey.id%}" class="btn btn-warning"> <i class="fas fa-archive"> Move to archive</i></a></td>
 
 
@@ -97,6 +97,16 @@
 </table>
 
 
+    <!--Message Start-->
+    {% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+    <!--End-->
     {%endblock%}
 </div>
 </body>

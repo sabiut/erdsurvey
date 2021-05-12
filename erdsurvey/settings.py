@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-
+from django.utils.translation import gettext_lazy as _
 from pathlib import Path
 import os
 
@@ -36,15 +36,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #'django_translation_flags',
     'home.apps.HomeConfig',
     'signup.apps.SignupConfig',
     'languages.apps.LanguagesConfig',
     'englishsurveyor.apps.EnglishsurveyorConfig',
+
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    #'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -53,6 +56,12 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'erdsurvey.urls'
+
+# LANGUAGES = [
+#   ('fr', _('French')),
+#   ('en', _('English')),
+#   ('pt-br', _('Brazilian Portuguese'))
+# ]
 
 TEMPLATES = [
     {
@@ -132,3 +141,5 @@ STATICFILES_DIRS = [
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+LOCALE_PATHS = [os.path.join(BASE_DIR, 'locale')]

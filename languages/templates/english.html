@@ -103,7 +103,7 @@
   <tbody>
     <tr>
 
-      <td>{{survey.title}}</td>
+      <td><a href="{%url 'takesurvey' survey.id%}">{{survey.title}}</a> </td>
       <td>{{survey.created_at}}</td>
         <td><a href="{%url 'archive' survey.id%}" class="btn btn-warning"> <i class="fas fa-archive"> Move to archive</i></a></td>
 

@@ -1,4 +1,5 @@
 {% load static %}
+{% load flags %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,7 +29,9 @@
 </head>
 <body>
 
-
+         <ul>
+    {% languages %}
+</ul>
 <div class="card">
   <div class="card-header">
     <i class="fas fa-address-card"></i> About BES Survey

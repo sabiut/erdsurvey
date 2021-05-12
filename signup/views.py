@@ -2,9 +2,11 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
-
+from django.contrib import messages
 # Create your views here.
 from languages.models import Survey
+
+from languages.forms import NewSurveyForm
 
 
 def signin(request):
@@ -67,3 +69,28 @@ def archive_survey(request, archive_id):
     get_id.archive = "archived"
     get_id.save()
     return redirect('/admin_dashboard')
+
+
+def edit_survey(request, get_survey_id):
+    if request.method == 'POST':
+        surveyid = Survey.objects.get(id=get_survey_id)
+        form = NewSurveyForm(request.POST, instance=surveyid)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/admin_dashboard')
+
+    else:
+        surveyid = Survey.objects.get(id=get_survey_id)
+        form = NewSurveyForm(instance=surveyid)
+        return render(request, 'edit_survey.html', {'form': form})
+
+
+def delete_survey(request, get_survey_id):
+    """delete survey record"""
+    try:
+        survey_record = Survey.objects.get(id=get_survey_id)
+        survey_record.delete()
+        return HttpResponseRedirect('/admin_dashboard')
+    except(survey_record.DoestNotExist):
+        messages.warning(request, 'Selected record was not found on the system.')
+        #return render(request, 'record_not_exist.html')
