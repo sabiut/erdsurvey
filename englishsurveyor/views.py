@@ -3,6 +3,8 @@ from django.shortcuts import render
 # Create your views here.
 from languages.models import Survey
 
+from languages.models import Choice
+
 
 def survey_view(request, object_id=None):
     try:

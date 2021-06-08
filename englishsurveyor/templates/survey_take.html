@@ -39,14 +39,36 @@
                 </h4>
 				</div>
 
-		{% for choice in question.choice_set.all %}
+		{% for choice in question.choice_set.all%}
+
+
 			 <div class="p-2">
             <input type="radio" name ="question{{question.id}}" value={{choice.id}}>
 				{{choice.choice}}
 			 </div>
-        {% endfor %}
 
-	{% endfor %}
+ 			{% endfor %}
+
+			{% for choice in question.textchoice_set.all%}
+
+
+			 <div class="p-2">
+            <input type="text" name ="question{{question.id}}" value="">
+				{{choice.choice_text}}
+			 </div>
+
+ 			{% endfor %}
+
+		    	{% for choice in question.checkchoice_set.all%}
+
+
+			 <div class="p-2">
+            <input type="checkbox" name ="question{{question.id}}" value={{choice.id}}>
+				{{choice.choice_check}}
+			 </div>
+
+ 			{% endfor %}
+		{% endfor %}
 
 
 		<div class="p-2">

@@ -1,7 +1,7 @@
 from django import forms
 
 # setup date picker start
-from .models import Survey, Question, Choice
+from .models import Survey, Question, Choice, TextChoice, CheckChoice
 
 
 class DateInput(forms.DateInput):
@@ -28,11 +28,11 @@ class RadioChoiceForm(forms.ModelForm):
 
 class TexBoxForm(forms.ModelForm):
     class Meta:
-        model = Choice
+        model = TextChoice
         fields = ('choice_text',)
 
 
 class CheckBoxForm(forms.ModelForm):
     class Meta:
-        model = Choice
+        model = CheckChoice
         fields = ('choice_check',)
