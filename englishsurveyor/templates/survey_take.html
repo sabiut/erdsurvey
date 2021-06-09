@@ -26,7 +26,7 @@
 	</div>
 
 <div class="d-flex flex-column">
-	<form method = "post" action =#>
+	<form method = "post" action ="{% url 'fill-survey' %}">
 
 	<input type = "hidden" name = "survey_id" value = {{survey.id}}>
 	{% csrf_token %}
@@ -49,25 +49,25 @@
 
  			{% endfor %}
 
-			{% for choice in question.textchoice_set.all%}
+<!--			{% for choice in question.textchoice_set.all%}-->
 
 
-			 <div class="p-2">
-            <input type="text" name ="question{{question.id}}" value="">
-				{{choice.choice_text}}
-			 </div>
+<!--			 <div class="p-2">-->
+<!--            <input type="text" name ="question{{question.id}}" value="">-->
+<!--				{{choice.choice_text}}-->
+<!--			 </div>-->
 
- 			{% endfor %}
+<!-- 			{% endfor %}-->
 
-		    	{% for choice in question.checkchoice_set.all%}
+<!--		    	{% for choice in question.checkchoice_set.all%}-->
 
 
-			 <div class="p-2">
-            <input type="checkbox" name ="question{{question.id}}" value={{choice.id}}>
-				{{choice.choice_check}}
-			 </div>
+<!--			 <div class="p-2">-->
+<!--            <input type="checkbox" name ="question{{question.id}}" value={{choice.id}}>-->
+<!--				{{choice.choice_check}}-->
+<!--			 </div>-->
 
- 			{% endfor %}
+<!-- 			{% endfor %}-->
 		{% endfor %}
 
 

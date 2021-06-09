@@ -1,0 +1,34 @@
+{%extends 'admin_dashboard.html'%}
+ {%block admin%}
+
+        <div class = "centerdv container">
+    	    <div class = "page-header">
+    			<h2><i class="fas fa-columns"></i> {{survey.title}} | <i class="fas fa-file-excel"> Download</i></h2>
+    		</div>
+    <div class="panel panel-default">
+       <table class="table">
+    <thead>
+      <tr class="table-primary">
+        <th>Question ID#</th>
+        <th>Question Title</th>
+        <th>Answer</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for answer in answers %}
+
+
+        {% for qa in answer.questionanswer_set.all %}
+        <tr>
+        <td>{{qa.answer.question.id}}</td>
+        <td>{{qa.answer.question.enter_question}}</td>
+        <td>{{qa.answer.choice}}</td>
+      </tr>
+        {% endfor %}
+
+      {% endfor %}
+    </tbody>
+  </table>
+
+
+{%endblock%}

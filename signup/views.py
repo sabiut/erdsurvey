@@ -87,10 +87,18 @@ def edit_survey(request, get_survey_id):
 
 def delete_survey(request, get_survey_id):
     """delete survey record"""
+    global survey_record
     try:
         survey_record = Survey.objects.get(id=get_survey_id)
         survey_record.delete()
         return HttpResponseRedirect('/admin_dashboard')
-    except(survey_record.DoestNotExist):
+    except survey_record.DoesNotExist:
         messages.warning(request, 'Selected record was not found on the system.')
-        #return render(request, 'record_not_exist.html')
+        # return render(request, 'record_not_exist.html')
+
+
+def admin_answers(request, survey_id):
+    survey = Survey.objects.get(id=survey_id)
+    answers = survey.surveyanswer_set.all()
+    ctx = {'answers': answers, 'survey': survey}
+    return render(request, 'admin-survey-detail.html', ctx)

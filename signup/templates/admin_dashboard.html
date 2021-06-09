@@ -68,12 +68,12 @@
     <table class="table table-striped">
   <thead>
     <tr class="table-primary">
-
       <th scope="col">Survey Title</th>
-      <th scope="col">Date Created</th>
-        <th scope="col">Edit</th>
+        <th scope="col"> Add question to Survey</th>
+        <th scope="col">Edit Survey Title</th>
         <th>Delete</th>
         <th>Archive</th>
+        <th scope="col">Date Created</th>
 
     </tr>
   </thead>
@@ -81,12 +81,13 @@
   <tbody>
     <tr>
 
-      <td><a href="{%url 'add_question' survey.id%}">{{survey.title}}</a></td>
-      <td>{{survey.created_at}}</td>
+      <td><a href="{%url 'answer-detail' survey.id%}"> <i class="fas fa-poll"></i> {{survey.title}}</a></td>
+        <td><a href="{%url 'add_question' survey.id%}" class="btn btn-success"><i class="fas fa-plus"></i> {{survey.title}}</a></td>
+
         <td><a href="{%url 'edit_survey' survey.id%}" class="btn btn-primary"> <i class="far fa-edit"> Edit</i></a></td>
         <td><a href="{%url 'delete_survey' survey.id%}" class="btn btn-danger"> <i class="far fa-trash-alt"> Delete</i></a></td>
          <td><a href="{%url 'archive' survey.id%}" class="btn btn-warning"> <i class="fas fa-archive"> Move to archive</i></a></td>
-
+         <td>{{survey.created_at}}</td>
 
     </tr>
 

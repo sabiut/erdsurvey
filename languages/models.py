@@ -44,4 +44,6 @@ class SurveyAnswer(models.Model):
 
 class QuestionAnswer(models.Model):
     answer = models.ForeignKey(Choice, on_delete=models.CASCADE)
+    # text_answer = models.ForeignKey(TextChoice, on_delete=models.CASCADE)
+    # check_answer = models.ForeignKey(CheckChoice, on_delete=models.CASCADE)
     survey_answer = models.ForeignKey(SurveyAnswer, on_delete=models.CASCADE)
